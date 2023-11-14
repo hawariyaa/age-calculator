@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color:#5c502e;
+  color: white;
+}
+.main{
+  position: absolute;
+  left: 10em;
+  top: 12em;
+}
+.text{
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+.input{
+  margin-bottom: 1em;
+  padding: 0.5em;
+  background-color: white;
+  font-size: 2em;
+}
+#date{
+  width: 12em;
+  height: 2.5em;
+}
+#button{
+width: 8em;
+height: 2.5em;
+}
+@media screen and (max-width: 600px){
+  .main{
+    position: absolute;
+    left: 6em;
+    top: 16em;
+  }
+  .text{
+    font-size: 1em;
+    margin-bottom: 0.5em;
+  }
+  #date{
+    width: 6em;
+    height: 1em;
+  }
+}

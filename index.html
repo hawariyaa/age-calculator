@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hawi age calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Outfit:wght@100;200;300;400;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,700;1,500&family=Roboto:ital,wght@0,300;0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="main">
+  <div class="text">
+    <h2>hawi javascript</h2>
+    <h3>age calculator</h3>
+  </div>
+  <div class="input">
+    <input type="date" id="date">
+    <button id="button">calculate</button>
+  </div>
+  <div class="output">
+    <p class="faceoutput">6 years 4 month and 12 days</p>
+  </div>
+</div>
+
+
+
+
+
+<script>
+  const input = document.querySelector('input#date');
+  const button = document.querySelector('button#button');
+  const output = document.querySelector('.faceoutput');
+
+  //to restrict the user from inputing a date that is invalid
+input.max = new Date().toISOString().split("T")[0]; //here it intialize a new date object convert that date into string then split the
+//date from the time and access the first element.
+
+function ageCalculator(){
+  let born = new Date(input.value);
+
+  let y1 = born.getFullYear();
+  let m1 = born.getMonth() + 1; //becuse month starts from 0 to 11;
+  let d1 = born.getDate();
+
+  let current = new Date();
+
+  let y2 = current.getFullYear();
+  let m2 = current.getMonth() + 1;
+  let d2 = current.getDate();
+
+   let y3 = y2 - y1;
+   let m3 = 0;
+   let d3 = 0;
+  if(m2>m1){
+     m3 = m2 - m1;
+  }
+  else{
+    m3 = 12 - (m1 - m2);
+    y3--;
+  }
+  let howdays = new Date(y2,m2,0).getDate();
+  if(d2>d1){
+    d3 = d2 - d1;
+  }
+  else {
+    d3 = howdays - (d1 - d2);
+    m3--;
+  }
+  if(m3<=0){
+    m3 = 12;
+    y3--;
+  }
+  console.log(y3, m3, d3);
+  output.textContent = `${y3} years ${m3} month ${d3} days`;
+  //  element.innerHTML = '<p>Hello, <strong>World!</strong></p>'; this is what innerHTML does
+  //element.textContent = 'Hello, World!'; no html tages inside textContent
+}
+
+
+  button.addEventListener('click', ageCalculator);
+</script>
+</body>
+</html>
